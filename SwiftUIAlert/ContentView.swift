@@ -16,17 +16,19 @@ struct ContentView: View {
             } label: {
                 Text("Present Alert")
             }
-
         }
         .padding()
         .alert(isPresented: $present) {
-            Alert(title: Text("Information Message"), primaryButton: .default(Text("OK"), action: {
-                debugPrint("OK")
-            }), secondaryButton: .default(Text("Cancel"), action: {
-                debugPrint("Cancel")
-            }))
+            showAlert(text: "Information Message", primary: "OK", secondary: "Cancel")
         }
         
+    }
+    func showAlert(text:String,primary:String,secondary:String)->Alert{
+        return Alert(title: Text(text), primaryButton: .default(Text(primary), action: {
+            debugPrint(primary)
+        }), secondaryButton: .default(Text(secondary), action: {
+            debugPrint(secondary)
+        }))
     }
 }
 
