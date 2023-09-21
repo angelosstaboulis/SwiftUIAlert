@@ -11,11 +11,18 @@ struct ContentView: View {
     @State var present:Bool = true
     var body: some View {
         VStack {
-            Button {
-                present.toggle()
-            } label: {
-                Text("Present Alert")
+            Color.blue.overlay {
+                Button {
+                    present.toggle()
+                } label: {
+                    Text("Present Alert")
+                }.background {
+                    RoundedRectangle(cornerRadius: 60)
+                       .frame(width:300,height:50)
+                       .foregroundStyle(.red)
+                }
             }
+          
         }
         .padding()
         .alert(isPresented: $present) {
